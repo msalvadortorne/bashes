@@ -2,8 +2,8 @@
 
 #Importem les llibreries de sistema, sockets i threadings respectivament.
 import sys
-import socket as s
-import threading as t
+import socket
+import threading
 
 #captura de flags del script
 ipInicial=sys.argv[1]
@@ -33,6 +33,6 @@ def scanPorts(ip)
   
  #Ara anem enviant a la funció abans definida varies IP's, compreses entre el limit introduït per l'usuari (IpInicial->IpFinal), alhora cadascun dels escanejos es farà en un 'fil' de la CPU diferent, enviant la execució de la funció principal (scanPorts) a un 'thread' cada cop.
  for acc2 in range(int(ipStart_cut),int(ipEnd_cut)):
-    ip = ipInicial_array[0]+"."+ipInicial_array[1]+"."+ipInicial_array[2]+str(acc2)
-    hilo = threading.Thread(target=scanPorts, args=(ip,))
+    ipCompleta = ipInicial_array[0]+"."+ipInicial_array[1]+"."+ipInicial_array[2]+str(acc2)
+    hilo = threading.Thread(target=scanPorts, args=(ipCompleta,))
     hilo.start()
