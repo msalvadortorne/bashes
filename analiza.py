@@ -17,7 +17,7 @@ ipStart_cut=ipInicial_array[3]
 ipEnd_cut=ipFinal_array[3]
 
 #Definim una funció que recorre un set de ports PER A UNA IP, on el port indicat per l'usuari (portLimit) es l'últim.
-def scanPorts(ip)
+def scanPorts(ip):
     try:
         for acc in range(1, int(portLimit)):
             puerto = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
